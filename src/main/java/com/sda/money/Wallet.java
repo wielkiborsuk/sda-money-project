@@ -2,7 +2,7 @@ package com.sda.money;
 
 public class Wallet {
 
-    private Money money = new Money(0);
+    private Money money = new Money();
 
     public void putMoney(Money other) {
         money.addMoney(other);
@@ -13,6 +13,6 @@ public class Wallet {
     }
 
     public String toString() {
-        return "Wallet with:\n" + money.toString();
+        return String.format("Wallet with:\n%s", money);
     }
 }

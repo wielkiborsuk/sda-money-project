@@ -15,7 +15,8 @@ public class Person {
     }
 
     public void giveMoney(Person other, Money money) {
-        System.out.println(name + " gives " + money + " to " + other.name);
+        System.out.println(
+                String.format("%s gives %s to %s", name, money, other.name));
         wallet.takeMoney(money);
         other.receiveMoney(money);
     }

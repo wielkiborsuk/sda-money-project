@@ -1,5 +1,7 @@
 package com.sda.money;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
         Person frank = new Person("Frank");
@@ -11,7 +13,7 @@ public class Main {
         System.out.println(frank);
         System.out.println(greg);
 
-        greg.giveMoney(frank, new Money(15));
+        greg.giveMoney(frank, new Money(45));
 
         System.out.println(frank);
         System.out.println(greg);
