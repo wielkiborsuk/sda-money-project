@@ -1,5 +1,7 @@
 package com.sda.money;
 
+import com.sda.money.exceptions.NotEnoughMoneyException;
+
 public class Person {
 
     private String name;
@@ -17,8 +19,13 @@ public class Person {
     public void giveMoney(Person other, Money money) {
         System.out.println(
                 String.format("%s gives %s to %s", name, money, other.name));
-        wallet.takeMoney(money);
-        other.receiveMoney(money);
+        try {
+            wallet.takeMoney(money);
+            other.receiveMoney(money);
+        } catch (NotEnoughMoneyException e) {
+            System.out.println(
+                    String.format("%s couldn't give %s to %s", name, money, other.name));
+        }
     }
 
     public String toString() {
