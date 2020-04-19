@@ -58,7 +58,7 @@ public class Money {
     }
 
     private void checkCurrency(Money other) {
-        if (this.currency.equals(other.currency)) {
+        if (!this.currency.equals(other.currency)) {
             throw new WrongCurrencyException();
         }
     }
