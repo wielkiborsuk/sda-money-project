@@ -43,6 +43,11 @@ public class Money {
         }
     }
 
+    public boolean isItEnough(Money debt) {
+        return (currency.equals(debt.currency) &&
+                amount.compareTo(debt.amount) >= 0);
+    }
+
     public Currency getCurrency() {
         return currency;
     }

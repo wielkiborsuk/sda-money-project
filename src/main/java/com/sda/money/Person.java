@@ -35,10 +35,30 @@ public class Person {
         }
     }
 
+    public void receiveItem(String item) {
+        myItems.add(item);
+    }
+
+    public void giveItem(Person other, String item) {
+        myItems.remove(item);
+        other.receiveItem(item);
+    }
+
+    public void addSellOffer(Offer offer) {
+        willSell.add(offer);
+    }
+
+    public void addBuyOffer(Offer offer) {
+        willBuy.add(offer);
+    }
+
     public void buy(Person other, String item) {
         Offer sellOffer = other.getSellOffer(item);
         Offer buyOffer = this.getBuyOffer(item);
-        // TODO
+        Money matchingPrice = buyOffer.getMatchingOffer(sellOffer);
+
+        giveMoney(other, matchingPrice);
+        other.giveItem(this, item);
     }
 
     private Offer getSellOffer(String item) {

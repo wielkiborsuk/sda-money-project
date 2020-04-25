@@ -12,7 +12,13 @@ public class Offer {
     }
 
     public Money getMatchingOffer(Offer sellOffer) {
+        for (Money willBuy : prices) {
+            for (Money willSell : sellOffer.prices) {
+                if (willBuy.isItEnough(willSell)) {
+                    return willSell;
+                }
+            }
+        }
         return null;
-        //TODO
     }
 }
