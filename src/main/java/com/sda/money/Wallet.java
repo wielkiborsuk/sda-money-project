@@ -25,6 +25,6 @@ public class Wallet {
     }
 
     public String toString() {
-        return String.format("Wallet with:\n%s", moneyMap);
+        return String.valueOf(moneyMap);
     }
 }
